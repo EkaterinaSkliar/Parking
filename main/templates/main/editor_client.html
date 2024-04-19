@@ -1,0 +1,17 @@
+{% extends 'main/base.html'%}
+{% load static %}
+
+{% block title %}
+{{ home }}
+{% endblock %}
+
+{% block content %}
+    <body class="container">
+        <form method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Сохранить изменение</button>
+            <a class="btn btn-danger" href="/delete_client/{{ client.id }}/" role="button">Удалить клиента</a>
+        </form>
+    </body>
+{% endblock %}
